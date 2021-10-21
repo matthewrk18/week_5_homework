@@ -2,8 +2,103 @@
 
 {% block content %}
 
+<!-- Flask Flashed Messages to the User -->
+
+{% with messages = get_flashed_messages(with_categories = true) %}
+    {% if messages %}
+        {% for cat, msg in messages %}
+            {% if cat == 'user-created' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ msg }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+            {% elif cat == 'auth-success' %}
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    {{ msg }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
 
 
 
-
+    <div class="container">
+        <header class="row">
+            <div class="col-12 col-md-6" id="header-text">
+                <h2>Lets's build the future of car collecting together!</h2>
+                <h5>Create an amazing API tool for car collecting.</h5>
+                <div>
+                <button class="btn btn-primary">View Our Docs</button>
+                <button class="btn btn-primary">Join Our Slack</button>
+                </div>
+            </div>
+            <div class="col-12 col-md-6">
+                <img src="../../static/images/undraw_server_status_5pbv.svg" alt="" class="header-image">
+            </div>
+        </header>
+        <!-- start of middle section-->
+        <section class="row">
+            <div class="col-12" id="middle-text">
+                <h2>Display your collection!</h2>
+                <p>You can harness the power of an API to expand your collection!</p>
+            </div>
+        </section>
+        <!-- end of middle section-->
+        <!-- start of feautures-->
+        <section class="row" id="features-section">
+            <div class="col-12 col-md-4">
+                <img src="../../static/images/api.png" alt="API Image" id="api-image">
+                <h4>Dedicated API Routes</h4>
+                <p>If you are a fan of using traditional API routes, we have those for you!</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <img src="../../static/images/graphql.png" alt="GraphQL Image" id="graphql-image">
+                <h4>GraphQL API Routes</h4>
+                <p>If you want ALL data from one endpoint, we have that too!</p>
+            </div>
+            <div class="col-12 col-md-4">
+                <img src="../../static/images/db.png" alt="Database Image" id="database-image">
+                <h4>Backed by a PostgreSQLe Database</h4>
+                <p>All data will be persisted inside of a secure Postgres Database</p>
+            </div>
+        </section>
+        <!-- End of features section -->
+        <!-- Start of comunity section -->
+        <section class="row">
+            <div class="col">
+                <h4>Hang out with car collectors from all over the globe!</h4>
+                <p>Talk with other devs around the world and collab 
+                    on projects with your data. Hop in our Slack channel and give
+                    a star to the project on Github!</p>
+                <button class="btn btn-primary">View on Github</button>
+                <button class="btn btn-primary">Join Our Slack Channel!</button>
+            </div>
+        </section>
+        <!-- end of community section -->
+        <footer id="footer" class="row">
+            <div class="col-3">
+                <p>footer</p>
+                <p>footer</p>
+                <p>footer</p>
+            </div>
+            <div class="col-3">
+                <p>footer</p>
+                <p>footer</p>
+                <p>footer</p>
+            </div>
+            <div class="col-3">
+                <p>footer</p>
+                <p>footer</p>
+                <p>footer</p>
+            </div>
+            <div class="col-3">
+                <p>footer</p>
+                <p>footer</p>
+                <p>footer</p>
+            </div>
+        </footer>
+    </div>
 {% endblock content %}
